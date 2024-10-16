@@ -1,0 +1,480 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: #0c1b35; /* Warna latar belakang yang memberikan kesan malam biru */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    height: 100vh;
+    background: url('img/personal-bg.jpg') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 27, 53, 0.6); /* Transparansi biru */
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    background: rgba(0, 27, 53, 0.9); /* Efek transparansi */
+}
+
+.logo h1 {
+    color: #F5F5F5; /* Warna putih cerah */
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #F5F5F5;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in;
+}
+
+.nav-links a:hover {
+    color: #68b7ff; /* Warna biru yang lembut */
+}
+
+.banner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.banner h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.banner p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.cta-btn {
+    background-color: #68b7ff;
+    color: white;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+    background-color: #4095e2;
+}
+
+.experience-section, .gallery-section, .contact-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1c2a48; /* Latar belakang dengan warna biru malam */
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #68b7ff;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.experience-card {
+    background-color: #223355; /* Biru gelap yang lebih dalam */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+}
+
+form .cta-btn {
+    background-color: #68b7ff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+form .cta-btn:hover {
+    background-color: #4095e2;
+}
+
+footer {
+    padding: 20px;
+    background-color: #1c2a48;
+    text-align: center;
+    color: white;
+}
+/* Banner Section */
+.banner {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    padding-top: 200px;
+    overflow: hidden; /* Membatasi gambar agar tidak keluar area banner */
+}
+
+.banner .slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Membuat gambar di belakang teks */
+    opacity: 0.4; /* Transparansi tipis */
+}
+
+.banner .slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.banner .slideshow img.active {
+    opacity: 1;
+}
+
+.banner h2 {
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideIn 2s forwards; /* Memulai animasi slide pada teks */
+}
+
+.banner p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: #68b7ff;
+    padding: 15px 30px;
+    color: white;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cta-btn:hover {
+    background-color: #4095e2;
+}
+
+/* Keyframes for Text Slide Animation */
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%); /* Memulai dari luar layar sebelah kanan */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* Berhenti di posisi normal */
+        opacity: 1;
+    }
+}
+/* Banner Section */
+.banner {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    height: 100vh; /* Fullscreen height */
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    overflow: hidden; /* Hide any overflow from images */
+    background: linear-gradient(135deg, rgba(0, 90, 190, 0.8), rgba(0, 50, 120, 0.8)); /* Darker gradient background */
+    border-radius: 20px; /* Rounded rectangle for the entire banner */
+}
+
+.banner .slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure slideshow stays behind text */
+    opacity: 0.5; /* Slightly transparent for text clarity */
+}
+
+.banner .slideshow img {
+    width: 100%;
+    height: 100%; /* Make the image fill the entire height */
+    object-fit: cover; /* Make the image cover entire section without getting cut off */
+    border-radius: 20px; /* Rounded corners for images */
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.banner .slideshow img.active {
+    opacity: 1; /* Show the current active image */
+}
+
+.banner-content {
+    z-index: 1; /* Bring content in front of the slideshow */
+    text-align: center;
+}
+
+.banner h2 {
+    font-size: 56px; /* Larger font size for better visibility */
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: slideIn 2s forwards; /* Start slide animation for text */
+}
+
+.banner p {
+    font-size: 24px; /* Larger font size for better visibility */
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: #68b7ff;
+    padding: 15px 30px;
+    color: white;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 40px; /* Ensure there's space below the button */
+}
+
+.cta-btn:hover {
+    background-color: #4095e2;
+}
+
+/* Keyframes for Text Slide Animation */
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%); /* Start from outside the right side of the screen */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* Move to the center */
+        opacity: 1;
+    }
+}
+/* Gallery Section */
+.gallery-section {
+    padding: 50px 0;
+    background-color: #0f2a47; /* Latar belakang gelap untuk memberikan kontras */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Setiap gambar memiliki ukuran minimal 250px */
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.gallery-img {
+    width: 250px; /* Ukuran lebar gambar yang lebih besar */
+    height: 250px; /* Ukuran tinggi gambar yang lebih besar */
+    object-fit: cover; /* Memastikan gambar tetap rapi tanpa distorsi */
+    border-radius: 10px; /* Efek sudut melengkung */
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.1); /* Efek zoom in ketika hover */
+}
+/* Contact Section */
+.contact-section {
+    padding: 50px 20px;
+    background-color: rgba(0, 72, 178, 0.1); /* Light background for contrast */
+}
+
+.contact-section .container {
+    max-width: 800px; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    text-align: center;
+}
+
+.contact-section .section-title {
+    font-size: 36px; /* Increase the font size */
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for the form */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners for the form */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    display: flex; /* Enable flexbox for the form layout */
+    flex-direction: column; /* Stack inputs vertically */
+    gap: 15px; /* Space between form elements */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    width: 100%; /* Full width for inputs */
+}
+
+label {
+    font-size: 18px; /* Larger label font size */
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    padding: 15px; /* Add padding to inputs and textarea */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 8px; /* Rounded corners for inputs */
+    font-size: 16px; /* Increase input font size */
+    transition: border-color 0.3s ease; /* Smooth border color change */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.submit-btn {
+    padding: 15px 25px; /* Increase padding for button */
+    font-size: 18px; /* Larger button font size */
+    width: 100%; /* Full width for button */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .contact-form {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}
+/* Conclusion Section */
+.conclusion-section {
+    padding: 50px 20px;
+    background-color: rgba(0, 72, 178, 0.05); /* Light background for contrast */
+}
+
+.conclusion-section .container {
+    max-width: 800px; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    text-align: center; /* Center the text */
+}
+
+.conclusion-section .section-title {
+    font-size: 36px; /* Increase the font size */
+    margin-bottom: 30px;
+}
+
+.conclusion-section p {
+    font-size: 20px; /* Larger font size for better readability */
+    line-height: 1.8; /* Increase line height for spacing */
+    margin-bottom: 20px; /* Space below the paragraph */
+    padding: 0 10%; /* Add horizontal padding for wider text area */
+    max-width: 900px; /* Optional: set a max width to control line length */
+    margin-left: auto; /* Center alignment */
+    margin-right: auto; /* Center alignment */
+}
+/* Animation for fade-in effect */
+.fade-in {
+    opacity: 0; /* Initial opacity */
+    transform: translateY(20px); /* Move down slightly */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Transition for opacity and position */
+}
+
+.fade-in.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Back to original position */
+}
+
+/* Style for the conclusion section */
+.conclusion-section {
+    padding: 50px 20px;
+    background-color: rgba(0, 72, 178, 0.05); /* Light background for contrast */
+}
+
+.conclusion-section .container {
+    max-width: 800px; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    text-align: center; /* Center the text */
+}
+
+.conclusion-section .section-title {
+    font-size: 36px; /* Increase the font size */
+    margin-bottom: 30px;
+}
+
+.conclusion-section p {
+    font-size: 20px; /* Larger font size for better readability */
+    line-height: 1.8; /* Increase line height for spacing */
+    margin-bottom: 20px; /* Space below the paragraph */
+    padding: 0 10%; /* Add horizontal padding for wider text area */
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
